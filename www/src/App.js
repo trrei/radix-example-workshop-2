@@ -14,7 +14,7 @@ class App extends React.Component {
 
   getData(){
     const data = {
-      "RADIX_APP": "my_app",
+      "RADIX_APP": "echo",
       "RADIX_CLUSTERNAME": "dev-1",
       "RADIX_COMPONENT": "echo",
       "RADIX_ENVIRONMENT": "development",
