@@ -1,6 +1,6 @@
 import React from 'react';
-import Echo from './Components/Echo'
-import Header from './Components/Header'  
+import Echo from './components/Echo'
+import Header from './components/Header'  
 import './App.css';
 
 class App extends React.Component {
@@ -24,7 +24,7 @@ class App extends React.Component {
       "RADIX_CLUSTERNAME": "dev-1",
       "RADIX_COMPONENT": "echo",
       "RADIX_ENVIRONMENT": "development",
-      "HOSTNAME":"https://external-preview.redd.it/7a_iqSnsaDNABkxgJDq_hhmMlXp0B6TXwg7mgaGFBRk.jpg?auto=webp&s=aa42f6e3468e517efa41e8b857ac84d56fdfa909",
+      "HOSTNAME":"my-computer",
       "HOSTPLATFORM":"linux"
     };
     this.setState({ echoResult: data, nrRefresh: nrRefresh})
