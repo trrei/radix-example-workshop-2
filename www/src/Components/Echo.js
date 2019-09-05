@@ -1,10 +1,14 @@
 import React from 'react';
 
 const Echo = (props) => {
-    const result = props.result
-    const refreshInterval =props.refreshInterval
+    const {
+        result,
+        refreshInterval,
+        nrRefresh } = props
+
     return <div>
-        <p>Response from the Grand Echo service (page refreshed every {refreshInterval} seconds)</p>
+        <p>Response from the Grand Echo service (page refreshed every {refreshInterval} milliseconds)</p>
+        <p>Number of refresh: <b>{nrRefresh}</b></p>
         <p>Radix Application: <b>{result.RADIX_APP}</b></p>
         <p>Radix Cluster name: <b>{result.RADIX_CLUSTERNAME}</b></p>
         <p>Radix Component: <b>{result.RADIX_COMPONENT}</b></p>
