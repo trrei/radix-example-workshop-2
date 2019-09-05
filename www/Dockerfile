@@ -1,41 +1,15 @@
-#
-# -- Base node image with app
-#
-FROM node:10-alpine AS base
-WORKDIR /usr/src/app
-COPY package.json package-lock.json app.js ./
-RUN mkdir -p ./bin ./routes
-COPY bin bin
-COPY public public
-COPY views views
-COPY routes routes
+# build environment
+FROM node:alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@3.0.1 -g --silent
+COPY . /app
+RUN npm run build
 
-#
-# -- Dependencies
-#
-FROM base as dependencies
-WORKDIR /usr/src/app
-RUN npm install --only=production
-RUN cp -R node_modules node_modules_production
-RUN npm install
-
-#
-# Potentially running test, linting, security check +++
-#
-FROM dependencies as test
-WORKDIR /usr/src/app
-#COPY test test
-#RUN ["npm","test"]
-COPY .eslintrc.json .eslintignore ./
-RUN npm run lint
-RUN npm audit
-
-#
-# Release image
-#
-FROM base as release
-WORKDIR /usr/src/app
-COPY --from=dependencies /usr/src/app/node_modules_production ./node_modules
-EXPOSE 3001
-ENV NODE_ENV=production
-ENTRYPOINT [ "npm", "start"]
+# production environment
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

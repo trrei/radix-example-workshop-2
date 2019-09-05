@@ -1,57 +1,68 @@
-# WWW - a node Express front-end
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-A small web front-end that queries the Echo module for Radix runtime information. Part of the Radix Example Workshop 1
+## Available Scripts
 
-## Pre-requisites
+In the project directory, you can run:
 
-The WWW app expects the "echo" to be available "somewhere". Depending on how you develop, you need to tell WWW where to find this by using the ECHO_URL environment variable. The default value is localhost:3000
+### `npm start`
 
-## Local node development
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Install dependencies
-```
-npm install
-```
-Run the application
-```
-npm start
-```
-Run the application dev mode - automatic restart of server when changes in source code are detected.
-```
-npm run dev
-```
-Run a vulnerability check on dependencies
-```
-npm audit
-```
-Lint the Javascript code
-```
-npm run lint
-```
-Run the application in debug mode - extensive logging
-```
-npm run debug
-```
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-### Environment variables
+### `npm test`
 
-The echo application use the following environment variables:
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-* ```PORT``` to define which local port to listen to. Default is port 3001.
-* ```NODE_ENV``` with values ```development``` or ```production``` (used by the Express framework)
-* ```ECHO_URL``` to define url for ECHO server. Example: ECHO_URL=http://localhost:3000 (default)
+### `npm run build`
 
-## Local docker development - build and run WWW
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-To build the image for the WWW app
-```
-docker build -t www .
-```
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-To run the WWW app in Docker
-```
-docker run -it --name=www --env ECHO_URL=http://localhost:3000 --rm -p 3001:3001 www
-```
-(replace ```-it``` with ```-d``` to run in detached mode)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Remember that ```localhost``` for stuff running inside a container is the container itself and not the host. There are of course different ways to work with this - Google and docker networking are cool tips
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
