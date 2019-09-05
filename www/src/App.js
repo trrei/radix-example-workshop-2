@@ -32,11 +32,24 @@ class App extends React.Component {
 
   getDataFromApi = () => {
     const nrRefresh = this.state.nrRefresh + 1
-    fetch('/api/echo')
+    const myInit = this.getFetchInit()
+
+    fetch('/api/echo', myInit)
       .then(result=> {return result.json()})
       .then(data => {
         this.setState({echoResult: data, nrRefresh: nrRefresh})
     })
+  }
+
+  // disable cache on http requests
+  getFetchInit = () => {
+    const myHeaders = new Headers();
+    myHeaders.append('pragma', 'no-cache');
+    myHeaders.append('cache-control', 'no-cache');
+    return {
+      method: 'GET',
+      headers: myHeaders,
+    };
   }
   
   render() {
