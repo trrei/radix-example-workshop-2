@@ -1,0 +1,8 @@
+{
+    "RADIX_APP": "my_app",
+    "RADIX_CLUSTERNAME": "dev-1",
+    "RADIX_COMPONENT": "echo",
+    "RADIX_ENVIRONMENT": "development",
+    "RADIX_HOSTNAME":"https://external-preview.redd.it/7a_iqSnsaDNABkxgJDq_hhmMlXp0B6TXwg7mgaGFBRk.jpg?auto=webp&s=aa42f6e3468e517efa41e8b857ac84d56fdfa909",
+    "RADIX_HOSTPLATFORM":"linux"
+}

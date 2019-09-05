@@ -1,0 +1,56 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: echo
+spec:
+  environments:
+    - name: production
+      build:
+        from: master
+  components:
+    - name: echo
+      src: ./echo
+      ports:
+      - name: http
+        port: 3000
+      public: false
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3000
+            NODE_ENV: "production"
+          monitoring: true
+          resources:
+            requests:
+              memory: "42Mi"
+              cpu: "10m"
+            limits:
+              memory: "50Mi"
+              cpu: "20m"
+          replicas: 4
+      # secrets:
+      #   - MY_SUPER_SECRET
+    - name: www
+      src: ./www
+      ports:
+       - name: http
+         port: 3001
+      public: true
+      environmentConfig:
+        - environment: production
+          variables:
+            PORT: 3001
+            NODE_ENV: "production"
+            ECHO_URL: "http://echo:3000"
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+  dnsAppAlias:
+    environment: production
+    component: www
