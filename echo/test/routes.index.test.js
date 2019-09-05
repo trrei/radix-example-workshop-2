@@ -16,9 +16,9 @@ beforeEach(function () {
 
 // Run test on end-point
 describe('Testing index router', function () {
-    it('GET / should return 200', function (done) {
+    it('GET /api/echo should return 200', function (done) {
         request(app)
-            .get('/')
+            .get('/api/echo')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function (err) {
@@ -29,7 +29,7 @@ describe('Testing index router', function () {
     });
     it('GET / body should contain valid echo object', function (done){
         request(app)
-            .get('/')
+            .get('/api/echo')
             .expect(function(res) {
                 expect(res.header).to.have.property('content-type');
                 expect(res.body).to.have.property('RADIX_CLUSTERNAME');

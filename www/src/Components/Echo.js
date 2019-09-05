@@ -13,8 +13,8 @@ const Echo = (props) => {
         <p>Radix Cluster name: <b>{result.RADIX_CLUSTERNAME}</b></p>
         <p>Radix Component: <b>{result.RADIX_COMPONENT}</b></p>
         <p>Radix Environment: <b>{result.RADIX_ENVIRONMENT}</b></p>
-        <p>Radix Host name: <a href="{result.RADIX_HOSTNAME}" className="App-link" target="_blank" rel="noopener noreferrer">link</a></p>
-        <p>Radix Host platform: <b>{result.RADIX_HOSTPLATFORM}</b></p>
+        <p>Radix Host name: <b>{result.HOSTNAME}</b></p>
+        <p>Radix Host platform: <b>{result.HOSTPLATFORM}</b></p>
     </div>
 }
 

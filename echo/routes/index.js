@@ -6,7 +6,7 @@ var router = express.Router();
 var os = require('os');
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/api/echo', function(req, res) {
     var responseObject = {
         'RADIX_APP': (process.env.RADIX_APP || 'empty'),
         'RADIX_CLUSTERNAME': (process.env.RADIX_CLUSTERNAME || 'empty'),
