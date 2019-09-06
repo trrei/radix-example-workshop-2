@@ -1,0 +1,71 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: echo
+spec:
+  environments:
+    - name: development
+      build:
+        from: master
+  components:
+    - name: www
+      src: ./www
+      ports:
+       - name: http
+         port: 3000
+      environmentConfig:
+        - environment: development
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+    - name: echo
+      src: ./echo
+      ports:
+       - name: http
+         port: 3001
+      environmentConfig:
+        - environment: development
+          monitoring: true
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "50m"
+            limits:
+              memory: "54Mi"
+              cpu: "200m"
+          replicas: 2
+    - name: auth-proxy
+      image: quay.io/pusher/oauth2_proxy:v4.0.0
+      publicPort: http
+      secrets:
+        - OAUTH2_PROXY_CLIENT_SECRET
+        - OAUTH2_PROXY_COOKIE_SECRET
+      ports:
+        - name: http
+          port: 8000
+      environmentConfig:
+        - environment: development
+          variables:
+            OAUTH2_PROXY_CLIENT_ID: "814607e6-3d71-44a7-8476-50e8b281abbc"
+            OAUTH2_PROXY_EMAIL_DOMAINS: "*"
+            OAUTH2_PROXY_HTTP_ADDRESS: "http://:8000"
+            OAUTH2_PROXY_PROVIDER: "azure"
+            OAUTH2_PROXY_REDIRECT_URL: "https://echo.app.playground.radix.equinor.com/oauth2/callback"
+            OAUTH2_PROXY_UPSTREAMS: "http://www:3000"
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+  dnsAppAlias:
+    environment: development
+    component: auth-proxy
