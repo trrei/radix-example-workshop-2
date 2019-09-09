@@ -60,3 +60,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## Note
+
+In this repository we've cheated and created a base.Dockerfile which is pushed to keaaa/www-base:latest by running make `deploy-base`. We then refer to this base image in www Dockerfile. This is not best practise, but to limit the docker build time, and have a more smooth experience during this workshop. For real scenarios you should include the steps in base.Dockerfile in the Dockerfile, so these steps are done on build.
