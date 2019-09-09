@@ -52,7 +52,7 @@ To follow best practises your team want to get a feedback loop validating the en
 ### 1.1.2. Getting started
 
 1. Fork repository to your home on github. Consider choosing an alternative name for the repository
-2. Clone your newly forked repository down to your developer laptop
+1. Clone your newly forked repository down to your developer laptop
 
 ### 1.1.3. Exploring the WWW app
 
@@ -66,20 +66,20 @@ To follow best practises your team want to get a feedback loop validating the en
 Important to know:
 
 1. The difference between ```platform user``` and ```application user```
-2. Important terminology: ```application```, ```environments```,```components```, and ```replicas``` [Important Radix Concepts](https://www.radix.equinor.com/docs/topic-concepts/)
-3. ```radixconfig.yaml``` - lives on the master branch and is your infrastrucure as code - drive your app in Radix.
+1. Important terminology: ```application```, ```environments```,```components```, and ```replicas``` [Important Radix Concepts](https://www.radix.equinor.com/docs/topic-concepts/)
+1. ```radixconfig.yaml``` - lives on the master branch and is your infrastrucure as code - drive your app in Radix.
 
 ### 1.1.5. Explore radixconfig.yaml
 
 1. Reading the [docs](https://github.com/equinor/radix-operator/blob/master/docs/radixconfig.md) [docs app](https://www.radix.equinor.com/docs/reference-radix-config/)
-2. Exploring the config file for the example app [./radixconfig.yaml](../radixconfig.yaml)
+1. Exploring the config file for the example app [./radixconfig.yaml](../radixconfig.yaml)
 
 ### 1.1.6. Creating the application on Radix
 
 1. Update the name of ```your instance``` of the application in radixconfig.yaml
-2. Follow the getting started guide (www.radix.equinor.com) or "just do it!"
-3. Do a change to trigger the initial build (or use the "New job" feature in the jobs/environment section). Examine web-hooks and reponse in Radix
-4. Verify that the app work on the public end-point it has been given.
+1. Follow the getting started guide (www.radix.equinor.com) or "just do it!"
+1. Do a change to trigger the initial build (or use the "New job" feature in the jobs/environment section). Examine web-hooks and reponse in Radix
+1. Verify that the app work on the public end-point it has been given.
 
 ## 1.2 Part 2 - connecting UI and API
 
@@ -90,23 +90,24 @@ Important to know:
 ### 1.2.2. Connect UI with Echo Api
 
 1. Move into [UI](../www/src/App.js) and disable the use of Mock data. 
-2. Run Echo API locally
-3. Run www locally
-4. Verify in log that requests are being handled by API
+1. Run Echo API locally
+1. Run www locally
+1. Verify in log that requests are being handled by API
 
 ### 1.2.3. Update app in Radix
 
 1. Add Echo app to radixconfig.yaml 
-2. Update [nginx.conf](../www/src/nginx.conf) to forward request to echo api
-3. Commit code to Master branch
+1. Update [nginx.conf](../www/src/nginx.conf) to forward request to echo api
+1. Commit code to Master branch. 
+1. Verify the changes in Radix. Look at the Radix Host name, which should jump between the two replicas we've setup for the API. 
 
 ### 1.2.4. Using multiple branches - multiple environments
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
 1. Update the radixconfig.yaml file in ```master```, commit, push and explore what's happening in Radix. (Copy the file ./radixconfigs/radixconfig-feature1.yaml to ./radixconfig.yaml. Remember to update app name)
-2. Check out the "new" branch (feature1)
-3. Examine code - the new feature  (getting a new env variable from Echo (node_env))
+1. Check out the "new" branch (feature1)
+1. Examine code - the new feature  (getting a new env variable from Echo (node_env))
     - Alternatively:
     - Checkout a new branch
     - Update the tests for Echo
@@ -117,7 +118,7 @@ Radix support connecting a branch to a specific environment. Let's explore this.
     - Update views for echo.ejs in WWW
     - Run npm start and verify
     - Commit changes and push
-4. (Do a change, commit, push and) explore what's happening in Radix.
+1. (Do a change, commit, push and) explore what's happening in Radix.
 
 ## 1.3 Part 3 - Authentication
 
