@@ -29,7 +29,13 @@ The purpose of the workshop is to give a general and hands-on introduction to Ra
 
 <!-- /TOC -->
 
-## 1.1. Part 1
+## 1.1. Part 1 - Register app in Radix
+
+Scenario
+
+Your team has just started developing an application that generates secure passwords and displayes it in a web client. As the architect of the project loves microservices, he has decided to separate the logic of creating the secure password in an API from displaying the password in a UI. After some initial discussion with the architect you have agreed on the OpenAPI specification for the API, but not managed to agreed on which technology to implement the API in. The Architect does not care much for UI, so you've settled on ReactJs. 
+
+To follow best practises your team want to get a feedback loop validating the end product (UI) with the customer asap. A continous CI/CD (automate build/deploy) of the application needs to be setup, ... You have arknowledge that the API cannot be started on yet, but since the OpenAPI specification has been agreed on, you can start with mocking data.
 
 ### 1.1.1. Pre-requisites
 
@@ -48,17 +54,11 @@ The purpose of the workshop is to give a general and hands-on introduction to Ra
 1. Fork repository to your home on github. Consider choosing an alternative name for the repository
 2. Clone your newly forked repository down to your developer laptop
 
-### 1.1.3. Exploring the Echo app
+### 1.1.3. Exploring the WWW app
 
-1. Move into the [echo](../echo/) folder and explore how to develop the Echo app using ```Node.js``` as well as Dockerizing the application.
+1. Move into the [www](../www/) folder and explore how to develop the WWW app using ```ReactJs``` and ```Node.js``` as well as Dockerizing the application.
 
-### 1.1.4. Exploring the WWW app
-
-1. Move into the [www](../www/) folder and explore how to develop the WWW app using ```Node.js``` as well as Dockerizing the application.
-
-Remember that the Echo app needs to run somewhere to get proper response.
-
-### 1.1.5. Preparing for Radix
+### 1.1.4. Preparing for Radix
 
 - The Radix cluster we use for the workshop is available at https://console.playground.radix.equinor.com/
 - Radix documentation is available at https://www.radix.equinor.com/
@@ -69,17 +69,36 @@ Important to know:
 2. Important terminology: ```application```, ```environments```,```components```, and ```replicas``` [Important Radix Concepts](https://www.radix.equinor.com/docs/topic-concepts/)
 3. ```radixconfig.yaml``` - lives on the master branch and is your infrastrucure as code - drive your app in Radix.
 
-### 1.1.6. Explore radixconfig.yaml
+### 1.1.5. Explore radixconfig.yaml
 
 1. Reading the [docs](https://github.com/equinor/radix-operator/blob/master/docs/radixconfig.md) [docs app](https://www.radix.equinor.com/docs/reference-radix-config/)
 2. Exploring the config file for the example app [./radixconfig.yaml](../radixconfig.yaml)
 
-### 1.1.7. Creating the application on Radix
+### 1.1.6. Creating the application on Radix
 
 1. Update the name of ```your instance``` of the application in radixconfig.yaml
 2. Follow the getting started guide (www.radix.equinor.com) or "just do it!"
 3. Do a change to trigger the initial build (or use the "New job" feature in the jobs/environment section). Examine web-hooks and reponse in Radix
 4. Verify that the app work on the public end-point it has been given.
+
+## 1.2 Part 2 - connecting UI and API
+
+### 1.2.1. Exploring the Echo app
+
+1. Move into the [echo](../echo/) folder and explore how to develop the Echo app using ```Node.js``` as well as Dockerizing the application.
+
+### 1.2.2. Connect UI with Echo Api
+
+1. Move into [Echo Api](../www/src/App.js) and disable the use of Mock data. 
+2. Run Echo API locally
+3. Run www locally
+4. Verify in log that requests are being handled by API
+
+### 1.2.3. Update app in Radix
+
+1. Add Echo app to radixconfig.yaml 
+2. Update [nginx.conf](../www/src/nginx.conf) to forward request to echo api
+3. Commit code to Master branch
 
 ### 1.1.8. Using multiple branches - multiple environments
 
