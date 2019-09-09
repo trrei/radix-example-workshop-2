@@ -89,7 +89,7 @@ Important to know:
 
 ### 1.2.2. Connect UI with Echo Api
 
-1. Move into [Echo Api](../www/src/App.js) and disable the use of Mock data. 
+1. Move into [UI](../www/src/App.js) and disable the use of Mock data. 
 2. Run Echo API locally
 3. Run www locally
 4. Verify in log that requests are being handled by API
@@ -100,7 +100,7 @@ Important to know:
 2. Update [nginx.conf](../www/src/nginx.conf) to forward request to echo api
 3. Commit code to Master branch
 
-### 1.1.8. Using multiple branches - multiple environments
+### 1.2.4. Using multiple branches - multiple environments
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
@@ -119,11 +119,27 @@ Radix support connecting a branch to a specific environment. Let's explore this.
     - Commit changes and push
 4. (Do a change, commit, push and) explore what's happening in Radix.
 
-### 1.1.9. Monitoring & Metrics
+## 1.3 Part 3 - Authentication
+
+Radix support refering to prebuild docker images. This can be used to introduce common services as proxies, caching, authentication etc. In this part we will explore how to reference an existing image to add OpenId Connect authentication to the application. 
+
+### 1.3.1 Create an app in Azure AD
+
+1. Go through an example (whole class use same app)
+
+### 1.3.2 Update radixconfig with oauth_proxy
+
+1. We'll use [OAuth proxy](https://github.com/pusher/oauth2_proxy) developed by pusher to add Authentication
+1. Update radixconfig file. See [example](https://github.com/equinor/radix-example-front-proxy) on how it can be done
+1. Remember to disable the public endpoint for ```www``` component in radixconfig file (publicPort should not be set)
+1. Optional: get the authentication to work locally using docker-compose - the format is similar to radixconfig
+1. Commit & push to master branch to verify setup
+
+## 1.4 Monitoring & Metrics
 
 The Echo component is exposing metrics on the /metrics endpoint. These metrics are scraped by [Prometheus](https://prometheus.io/docs/introduction/overview/) and made available in [Grafana](https://grafana.com/). Consult the docs for Prometheus and Grafana for how to work with metrics and monitoring.
 
-## 1.2. Typical questions
+## 2. Typical questions
 
 (Status as of January 2019)
 
@@ -135,26 +151,24 @@ The Echo component is exposing metrics on the /metrics endpoint. These metrics a
 - Backup & Disaster recovery
 - Own domain names / urls for apps
 
-## 1.3. Where to get started, get help, log issues or feature requests
+## 2.1. Where to get started, get help, log issues or feature requests
 
-### 1.3.1. Getting help
+### 2.1.1. Getting help
 
 - Radix on #Slack ([#omnia_radix](https://equinor.slack.com/messages/C8U7XGGAJ), [#omnia_radix_support](https://equinor.slack.com/messages/CBKM6N2JY))
 - [Raidx front app](https://www.radix.equinor.com/)
 - Radix on [github.com](https://github.com/equinor/radix-platform)
 
-### 1.3.2. Getting started
+### 2.1.2. Getting started
 
 - Radix Getting Started - https://www.radix.equinor.com/
 
-### 1.3.3. Log issues & feature requests
+### 2.1.3. Log issues & feature requests
 
 - https://github.com/equinor/radix-platform/issues
 
 It makes sense to examing existing issues and perhaps discuss on Slack prior to logging a new one
 
-## 1.4. Part 2
-
-### 1.4.1. Next steps
+## 3 Next steps
 
 - Move your own apps into Radix
