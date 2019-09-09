@@ -83,6 +83,8 @@ Important to know:
 
 ## 1.2 Part 2 - connecting UI and API
 
+A first version of the API has been implemented, and we would like to integrate the UI and use it instead of mock data. 
+
 ### 1.2.1. Exploring the Echo app
 
 1. Move into the [echo](../echo/) folder and explore how to develop the Echo app using ```Node.js``` as well as Dockerizing the application.
