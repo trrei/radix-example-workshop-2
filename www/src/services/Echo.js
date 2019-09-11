@@ -12,12 +12,14 @@ const EchoService = (mockData) => {
 const loadDataMock = () => {  
   return new Promise(function(resolve) {
       const data = {
-        "RADIX_APP": "echo",
+        "RADIX_APP": "app_name",
         "RADIX_CLUSTERNAME": "dev-1",
         "RADIX_COMPONENT": "echo",
         "RADIX_ENVIRONMENT": "development",
         "HOSTNAME":"my-computer",
-        "HOSTPLATFORM":"linux"
+        "HOSTPLATFORM":"mac",
+        "PASSWORD":"random_password",
+        "PASSPHRASE":"random_passphrase"
       };
       resolve(data)
     })

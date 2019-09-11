@@ -33,9 +33,9 @@ The purpose of the workshop is to give a general and hands-on introduction to Ra
 
 Scenario
 
-Your team has just started developing an application that generates secure passwords and displayes it in a web client. As the architect of the project loves microservices, he has decided to separate the logic of creating the secure password in an API from displaying the password in a UI. After some initial discussion with the architect you have agreed on the OpenAPI specification for the API, but not managed to agreed on which technology to implement the API in. The Architect does not care much for UI, so you've settled on ReactJs. 
+Your team has just started developing an application that generates secure passwords and displayes it in a web client. To get feedback from end users as fast as possible, your team have chosen to do [UI first](https://konstantinpavlov.net/blog/2017/03/07/ui-first-development/) development. To facilitate a short feedback loop, continous CI/CD (automate build/deploy) of the application needs to be setup, ending with a public url that users can test.
 
-To follow best practises your team want to get a feedback loop validating the end product (UI) with the customer asap. A continous CI/CD (automate build/deploy) of the application needs to be setup, ... You have arknowledge that the API cannot be started on yet, but since the OpenAPI specification has been agreed on, you can start with mocking data.
+An OpenAPI specification has been agreed on with the API team, so we'll begin with mocking data for the UI. Radix has been choosen as platform, seemingly perfect for the scenario.
 
 ### 1.1.1. Pre-requisites
 
@@ -83,7 +83,9 @@ Important to know:
 
 ## 1.2 Part 2 - connecting UI and API
 
-A first version of the API has been implemented, and we would like to integrate the UI and use it instead of mock data. 
+Scenario
+
+The UI is comming along nicely, and your team has started on the API. Next step is to integrate the API with the UI, so users can also start testing the logic behind password generation.
 
 ### 1.2.1. Exploring the Echo app
 
@@ -103,34 +105,42 @@ A first version of the API has been implemented, and we would like to integrate 
 1. Commit code to Master branch. 
 1. Verify the changes in Radix. Look at the Radix Host name, which should jump between the two replicas we've setup for the API. 
 
-### 1.2.4. Using multiple branches - multiple environments
+## 1.3 Part 3 - setup prod environment
+
+Scenario
+
+The MVP of the application is done, and next step is to setup a production environment. There is sadly too few automated tests to support a clean [Trunk base development](https://trunkbaseddevelopment.com/), but we will do something similar. 
+
+We'll setup 2 new environments, QA and prod. A build/deploy to QA will be triggered by push to "release" branches. When the QA version has been verified its manually promoted to prod environment
+
+### 1.3.1. Multiple environments
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
-1. Update the radixconfig.yaml file in ```master```, commit, push and explore what's happening in Radix. (Copy the file ./radixconfigs/radixconfig-feature1.yaml to ./radixconfig.yaml. Remember to update app name)
-1. Check out the "new" branch (feature1)
-1. Examine code - the new feature  (getting a new env variable from Echo (node_env))
-    - Alternatively:
-    - Checkout a new branch
-    - Update the tests for Echo
-    - Run tests - which fails
-    - Add feature to Echo
-    - Run tests - hopefully with success
-    - Build Docker image and verify
-    - Update views for echo.ejs in WWW
-    - Run npm start and verify
-    - Commit changes and push
-1. (Do a change, commit, push and) explore what's happening in Radix.
+1. Add two new environment in radixconfig.yaml file - QA and prod. QA should be built from release* (whenever someone publish to a release* branch). 
+1. Commit and push changes to master branch, explore what's happening in Radix.
 
-## 1.3 Part 3 - Authentication
+### 1.3.2 Deploy to QA
+
+1. Check out a new branch "release/0.1.0" from master branch
+1. Commit and push the new branch, explore what's happening in Radix.
+1. Verified that the application is running as expected in QA environment. 
+
+### 1.3.3 Promote to production
+
+1. Do a promotion of the deployment running in QA to prod environment. 
+1. Verified that the application is running as expected in prod environment. 
+
+## 1.4 Part 4 - Authentication
 
 Radix support refering to prebuild docker images. This can be used to introduce common services as proxies, caching, authentication etc. In this part we will explore how to reference an existing image to add OpenId Connect authentication to the application. 
 
-### 1.3.1 Create an app in Azure AD
+### 1.4.1 Create an app in Azure AD
 
 1. Go through an example (whole class use same app)
+1. Explain scenarios OAuth proxy is fittet for, and where it is not
 
-### 1.3.2 Update radixconfig with oauth_proxy
+### 1.4.2 Update radixconfig with oauth_proxy
 
 1. We'll use [OAuth proxy](https://github.com/pusher/oauth2_proxy) developed by pusher to add Authentication
 1. Update radixconfig file. See [example](https://github.com/equinor/radix-example-front-proxy) on how it can be done
@@ -138,7 +148,7 @@ Radix support refering to prebuild docker images. This can be used to introduce 
 1. Optional: get the authentication to work locally using docker-compose - the format is similar to radixconfig
 1. Commit & push to master branch to verify setup
 
-## 1.4 Monitoring & Metrics
+## 1.5 Monitoring & Metrics
 
 The Echo component is exposing metrics on the /metrics endpoint. These metrics are scraped by [Prometheus](https://prometheus.io/docs/introduction/overview/) and made available in [Grafana](https://grafana.com/). Consult the docs for Prometheus and Grafana for how to work with metrics and monitoring.
 
