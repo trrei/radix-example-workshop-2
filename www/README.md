@@ -1,6 +1,8 @@
 # WWW
 
-A small web front-end built using ReactJS. It should query the Echo module for a random password and Radix runtime information. Request from the client running in browser will go through the www component, where requests will be forward to Echo api. This is done since the Echo api should not be exposed to internet (and we dont have to setup CORS rules). 
+A small web front-end built using ReactJS. It should query the Echo module for a passwords and Radix runtime information. 
+
+Request from the browser client will go through the www web server (nginx), where requests will be forward to Echo api. This is done since the Echo api should not be exposed to internet (and we dont have to setup CORS rules). 
 
 ## Mock data
 
@@ -45,46 +47,36 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 Run a vulnerability check on dependencies
 
-### `make build`
+## Local docker development
 
-Builds a docker image named `www`.
+The reactjs app will be built by nodejs and served by a nginx web server. 
 
-Note: [nginx.conf](./nginx.conf) contains route to reach the echo api. If the application mock data, this route needs to be commented out, as nginx throws an error if not. 
+### Build docker image
 
-### `make run``
+To build the image for the WWW app
+```
+docker build -t www .
+```
+__Note__: [Nginx config](./nginx.conf) used by www contains a redirect to reach the echo api. This route needs to be commented in/out, based on mockOff/mockOn. This needes to be done at build time. Nginx throws an error if not. (TODO! - control if to mock or not through env variable)
 
-Runs docker image with correct settings
+### Run as docker container
 
-## Note
+To run the WWW app in Docker
+```
+docker run -it --rm -p 3000:3000 www
+```
+(replace ```-it``` with ```-d``` to run in detached mode)
 
-In this repository we've cheated and created a base.Dockerfile which is pushed to keaaa/www-workshop-base:latest by running `make deploy-base`. We then refer to this base image in www Dockerfile. This is not best practise, but to limit the docker build time, and have a more smooth experience during this workshop. For real scenarios you should include the steps in base.Dockerfile in the Dockerfile, so these steps are done on each build.
+## Cheating
 
-## Learn More
+In this repository we've cheated and created a [base.Dockerfile](./base.Dockerfile) which is pushed to `keaaa/www-workshop-base:latest`. The actual [Dockerfile](./Dockerfile) refer to this base image.
+
+ This is not best practise, but to limit the docker build time, and have a more smooth experience during this workshop. For real scenarios you should include the steps in base.Dockerfile in the Dockerfile, so these steps are done on each build.
+
+Do not add new or update dependencies for this component, as it will fail during build.
+
+## ReactJS - Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

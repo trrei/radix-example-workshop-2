@@ -1,19 +1,21 @@
 # Echo module
 
-What does this ting do? It responds to http request on a given port at root (/) and sends back a JSON object in the body with some Radix information.
+What does this ting do? It responds to http request on a given port at root (/) or (/api/echo) and sends back a JSON object in the body with a password, a passphrase and some Radix information.
 
 ```Response object```
 
 ```
 {
     "RADIX_APP": "",
-    "RADIX_CLUSTERNAME": "",
     "RADIX_COMPONENT": "",
     "RADIX_ENVIRONMENT": "",
     "HOSTNAME": "",
-    "HOSTPLATFORM": ""
+    "HOSTPLATFORM": "",
+    "PASSWORD": "",
+    "PASSPHRASE": ""
 }
 ```
+[routes/index.js](./routes/index.js) contains the definition of route and most of this apis logic
 
 ## Local node development
 
@@ -50,10 +52,10 @@ npm run debug
 
 The echo application use the following environment variables:
 
-* ```PORT``` to define which local port to listen to (default is 3000)
+* ```PORT``` to define which local port to listen to (default is 3001)
 * ```NODE_ENV``` with values ```development``` or ```production``` (used by the Express framework)
 
-## Local docker development - build and run Echo
+## Local docker development
 
 To build the image for the Echo app
 ```
@@ -62,7 +64,7 @@ docker build -t echo .
 
 To run the Echo app in Docker
 ```
-docker run -it --name=echo --rm -p 3000:3000 echo
+docker run -it --name=echo --rm -p 3001:3001 echo
 ```
 (replace ```-it``` with ```-d``` to run in detached mode)
 

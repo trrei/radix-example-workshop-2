@@ -8,24 +8,23 @@ var niceware = require('niceware');
 
 /* GET home page. */
 router.get('/api/echo', function(req, res) {
-    const responseObject = createResponse();    
-
-    res.set('Content-Type', 'application/json');
-    console.log('Sending response HUSTON ', responseObject);
-    res.status(200).send(responseObject);
+    doResponse(res, createResponse());
 });
 
 router.get('/', function(req, res){
-    const responseObject = createResponse();    
-
-    res.set('Content-Type', 'application/json');
-    console.log('Sending response HUSTON ', responseObject);
-    res.status(200).send(responseObject);
+    doResponse(res, createResponse());
 });
 
 router.get('/healthz', function(req, res){
     res.status(200).send();
 });
+
+function doResponse(res, body){
+    console.log('reponse: ', body);
+
+    res.set('Content-Type', 'application/json');
+    res.status(200).send(body);
+}
 
 function createResponse(){
     const password = createRandomPassword();
