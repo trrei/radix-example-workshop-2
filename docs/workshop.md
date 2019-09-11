@@ -125,7 +125,7 @@ We'll setup 2 new environments, QA and prod. A build/deploy to QA will be trigge
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
-1. Add two new environment in radixconfig.yaml file - QA and prod. QA should be built from release* (whenever someone publish to a release* branch). 
+1. Add two new environments in radixconfig.yaml file - QA and prod. QA should be built from release* (whenever someone publish to a release* branch). 
 1. Commit and push changes to master branch, explore what's happening in Radix.
 
 ### 2.3.2 Deploy to QA
@@ -160,9 +160,6 @@ Radix support refering to prebuild docker images. This can be used to introduce 
 
 The Echo component is exposing metrics on the /metrics endpoint. These metrics are scraped by [Prometheus](https://prometheus.io/docs/introduction/overview/) and made available in [Grafana](https://grafana.com/). Consult the docs for Prometheus and Grafana for how to work with metrics and monitoring.
 
-## 2.6 *.equinor.com domain
-
-The application is currently hosted under a *.radix.equinor.com domain. This is OK for now, but it has been identified that for the future we'll want our own *.equinor.com domain as is possible in [Radix](https://www.radix.equinor.com/docs/reference-radix-config/#dnsexternalalias).
 
 ## 3. Typical questions
 
@@ -196,4 +193,5 @@ It makes sense to examing existing issues and perhaps discuss on Slack prior to 
 
 ## 4 Next steps
 
+- The application is currently hosted under a *.radix.equinor.com domain. This is OK for now, but it has been identified that for the future we'll want our own *.equinor.com domain as is possible in [Radix](https://www.radix.equinor.com/docs/reference-radix-config/#dnsexternalalias).
 - Move your own apps into Radix
