@@ -71,14 +71,14 @@ Important to know:
 
 ### 2.1.4. Explore radixconfig.yaml
 
-1. Reading the [docs](https://github.com/equinor/radix-operator/blob/master/docs/radixconfig.md) [docs app](https://www.radix.equinor.com/docs/reference-radix-config/)
+1. Reading about radixconfig.yaml in [docs](https://www.radix.equinor.com/docs/reference-radix-config)
 1. Exploring the config file for the example app [./radixconfig.yaml](../radixconfig.yaml)
 
 ### 2.1.5. Creating the application on Radix
 
-1. Update the name of ```your instance``` of the application in radixconfig.yaml
-1. Follow the getting started guide (www.radix.equinor.com) or "just do it!"
-1. Do a change to trigger the initial build (or use the "New job" feature in the jobs/environment section). Examine web-hooks and reponse in Radix
+1. Update the ```your app name``` of the application in radixconfig.yaml - it needs to be unique in cluster
+1. Follow the [getting started guide](https://www.radix.equinor.com/guides/configure-an-app/) or "just do it!"
+1. Do a change to trigger the initial build. Examine web-hooks and reponse in Radix
 1. Verify that the app work on the public end-point it has been given.
 
 ## 2.2 Part 2 - connecting UI and API
@@ -146,7 +146,7 @@ Radix support refering to prebuild docker images. This can be used to introduce 
 ### 2.4.1 Create an app in Azure AD
 
 1. Go through an example (whole class use same app)
-1. Explain scenarios OAuth proxy is fittet for, and where it is not
+1. Explain scenarios OAuth proxy can be used and where it cannot
 
 ### 2.4.2 Update radixconfig with oauth_proxy
 
