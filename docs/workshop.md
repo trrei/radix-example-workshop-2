@@ -7,7 +7,7 @@ The purpose of the workshop is to give a general and hands-on introduction to Ra
 ## 1.1. Pre-requisites
 
 - Have access to the Radix Playground
-  - Apply for access to the Radix Playground in AccessIT (seach for ````Radix Playground Users````)
+  - Apply for access to the Radix Playground in AccessIT (search for ````Radix Playground Users````)
   -  Find Radix at [https://console.playground.radix.equinor.com](https://console.playground.radix.equinor.com)
 - Account on github.com
 - Git installed and working locally against github.com
@@ -53,7 +53,7 @@ Important to know:
 
 1. Update the ```your app name``` of the application in radixconfig.yaml - it needs to be unique in cluster
 1. Follow the [getting started guide](https://www.radix.equinor.com/guides/configure-an-app/) or "just do it!"
-1. Do a change to trigger the initial build. Examine web-hooks and reponse in Radix
+1. Do a change in app, commit and push to master to trigger the initial build and deploy to Radix. Examine web-hooks and reponse in Radix
 1. Verify that the app work on the public end-point it has been given.
 
 ## 2.2 Part 2 - connecting UI and API
@@ -100,7 +100,7 @@ We'll setup 2 new environments, QA and prod. A build/deploy to QA will be trigge
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
-1. Add two new environments in radixconfig.yaml file - QA and prod. QA should be built from release* (whenever someone publish to a release* branch). 
+1. Add two new environments in radixconfig.yaml file - QA and prod. QA should be built from release* branch (whenever someone publish to a release* branch).
 1. Commit and push changes to master branch, explore what's happening in Radix.
 
 ### 2.3.2 Deploy to QA
@@ -153,7 +153,7 @@ The Echo component is exposing metrics on the /metrics endpoint. These metrics a
 ### 3.1.1. Getting help
 
 - Radix on #Slack ([#omnia_radix](https://equinor.slack.com/messages/C8U7XGGAJ), [#omnia_radix_support](https://equinor.slack.com/messages/CBKM6N2JY))
-- [Raidx front app](https://www.radix.equinor.com/)
+- [Radix site](https://www.radix.equinor.com/)
 - Radix on [github.com](https://github.com/equinor/radix-platform)
 
 ### 3.1.2. Getting started
