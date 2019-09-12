@@ -9,7 +9,7 @@ spec:
         from: master
     - name: qa
       build:
-        from: release*
+        from: release/*
     - name: prod
   components:
     - name: www
