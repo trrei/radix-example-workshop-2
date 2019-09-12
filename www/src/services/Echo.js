@@ -1,7 +1,7 @@
 
-const EchoService = (mockData) => {
+const EchoService = (useMockData) => {
   let fetch = loadDataFromApi;
-  if (mockData) {
+  if (useMockData) {
     fetch = loadDataMock;
   }
   return {

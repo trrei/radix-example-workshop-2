@@ -6,9 +6,9 @@ Request from the browser client will go through the www web server (nginx), wher
 
 ## Mock data
 
-TODO!! MOCK_ECHO_URL and ECHO_API_URL should be environment variables
+TODO!! USE_MOCK_DATA and ECHO_API_URL should be environment variables
 
-The variable `mockData` in [App.js](./src/App.js) decide if WWW should mock data itself or pull data from Echo API. If this is set to false, using Echo API, you need to run Echo API on localhost:3001 (default).
+The variable `useMockData` in [App.js](./src/App.js) decide if WWW should mock data itself or pull data from Echo API. If this is set to false, using Echo API, you need to run Echo API on localhost:3001 (default).
 
 ## Available Scripts
 

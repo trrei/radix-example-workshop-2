@@ -9,7 +9,7 @@ class App extends React.Component {
     super()
 
     this.refreshInterval = 1000;
-    this.mockData = true;
+    this.useMockData = true;
     
     this.state ={
       echoResult: {},
@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
   loadData = () => {
-    const echoService = EchoService(this.mockData)
+    const echoService = EchoService(this.useMockData)
     const nrRefresh = this.state.nrRefresh + 1
 
     echoService.fetch('/api/echo').then(data => this.setState({ echoResult: data, nrRefresh: nrRefresh}))
