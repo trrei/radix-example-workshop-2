@@ -8,6 +8,10 @@
   pointer-events: none;
 }
 
+.App-description {
+  font-size: calc(10px + 1vmin);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 50vh;

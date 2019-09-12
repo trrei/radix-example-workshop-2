@@ -1,6 +1,8 @@
-# Radix Workshop - Example 1 (WWW & Echo)
+# Radix Workshop - Example 2 (WWW & Echo)
 
-Purpose - a simple two module app. The public front-end (www) will respond to requests, request data from the non-public echo module - and echo the data back to the requestor. All magic! 
+Application - Create an application that generates passwords and display it in a web browser. 
+
+It will be implemented as a two module app. The public front-end (www) will respond to requests, request a new password from the non-public echo module - and echo the data back to the requestor. All magic! 
  
 ## Content
 

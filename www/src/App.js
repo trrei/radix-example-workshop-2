@@ -1,7 +1,7 @@
 import React from 'react';
-import Echo from './components/Echo'
-import Header from './components/Header'
-import EchoService from './services/Echo'  
+import Echo from './components/Echo';
+import Header from './components/Header';
+import EchoService from './services/Echo';
 import './App.css';
 
 class App extends React.Component {

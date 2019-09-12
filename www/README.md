@@ -2,11 +2,13 @@
 
 A small web front-end built using ReactJS. It should query the Echo module for a passwords and Radix runtime information. 
 
-## Mock data
+## Entrypoint
+
+[App.js](./src/App.js) is the entrypoint for the application, and a good place to start exploring WWW. 
 
 The variable `useMockData` in [App.js](./src/App.js) decide if WWW should mock data itself or pull data from Echo API. If this is set to false, you need to run Echo API on localhost:3001 (default).
 
-TODO!! USE_MOCK_DATA and ECHO_API_URL should be environment variables
+TODO BEFORE WORKSHOP!! USE_MOCK_DATA and ECHO_API_URL should be environment variables
 
 ## Available Scripts
 
