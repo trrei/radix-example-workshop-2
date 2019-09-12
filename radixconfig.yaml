@@ -109,7 +109,7 @@ spec:
             OAUTH2_PROXY_EMAIL_DOMAINS: "*"
             OAUTH2_PROXY_HTTP_ADDRESS: "http://:8000"
             OAUTH2_PROXY_PROVIDER: "azure"
-            OAUTH2_PROXY_REDIRECT_URL: "https://www-echo-development.playground.radix.equinor.com/oauth2/callback"
+            OAUTH2_PROXY_REDIRECT_URL: "https://auth-proxy-echo-development.playground.radix.equinor.com/oauth2/callback"
             OAUTH2_PROXY_UPSTREAMS: "http://www:3000"
           resources:
             requests:
@@ -125,7 +125,7 @@ spec:
             OAUTH2_PROXY_EMAIL_DOMAINS: "*"
             OAUTH2_PROXY_HTTP_ADDRESS: "http://:8000"
             OAUTH2_PROXY_PROVIDER: "azure"
-            OAUTH2_PROXY_REDIRECT_URL: "https://www-echo-qa.playground.radix.equinor.com/oauth2/callback"
+            OAUTH2_PROXY_REDIRECT_URL: "https://auth-proxy-echo-qa.playground.radix.equinor.com/oauth2/callback"
             OAUTH2_PROXY_UPSTREAMS: "http://www:3000"
           resources:
             requests:
