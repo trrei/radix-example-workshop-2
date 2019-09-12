@@ -20,7 +20,7 @@ The purpose of the workshop is to give a general and hands-on introduction to Ra
 
 Scenario
 
-Your team has just started developing an application that generates secure passwords and displayes it in a web client. To get feedback from end users as fast as possible, your team have chosen to do [UI first](https://konstantinpavlov.net/blog/2017/03/07/ui-first-development/) development. To facilitate a short feedback loop, continous CI/CD (automate build/deploy) of the application needs to be setup, ending with a public url that users can test.
+Your team has just started developing an application that generates secure passwords and displayes it in a web client. To get feedback from end users as fast as possible, your team have chosen to do [UI first](https://konstantinpavlov.net/blog/2017/03/07/ui-first-development/) development. To facilitate a short feedback loop, automated CI/CD (automate build/deploy) of the application needs to be setup, ending with a public url that users can test.
 
 An OpenAPI specification has been agreed on with the API team, so we'll begin with mocking data for the UI. Radix has been choosen as platform, seemingly perfect for the scenario.
 
