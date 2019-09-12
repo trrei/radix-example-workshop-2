@@ -9,7 +9,7 @@ class App extends React.Component {
     super()
 
     this.refreshInterval = 1000;
-    this.useMockData = false;
+    this.useMockData = true;
     
     this.state ={
       echoResult: {},
