@@ -2,17 +2,17 @@
 
 A small web front-end built using ReactJS. It should query the Echo module for a passwords and Radix runtime information. 
 
-Request from the browser client will go through the www web server (nginx), where requests will be forward to Echo api. This is done since the Echo api should not be exposed to internet (and we dont have to setup CORS rules). 
-
 ## Mock data
 
-TODO!! USE_MOCK_DATA and ECHO_API_URL should be environment variables
+The variable `useMockData` in [App.js](./src/App.js) decide if WWW should mock data itself or pull data from Echo API. If this is set to false, you need to run Echo API on localhost:3001 (default).
 
-The variable `useMockData` in [App.js](./src/App.js) decide if WWW should mock data itself or pull data from Echo API. If this is set to false, using Echo API, you need to run Echo API on localhost:3001 (default).
+TODO!! USE_MOCK_DATA and ECHO_API_URL should be environment variables
 
 ## Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+Locally the app runs on the web server provided through create-react-app, while in production we'll use a nginx web server.
 
 In the project directory, you can run:
 
@@ -71,7 +71,7 @@ docker run -it --rm -p 3000:3000 www
 
 In this repository we've cheated and created a [base.Dockerfile](./base.Dockerfile) which is pushed to `keaaa/www-workshop-base:latest`. The actual [Dockerfile](./Dockerfile) refer to this base image.
 
- This is not best practise, but to limit the docker build time, and have a more smooth experience during this workshop. For real scenarios you should include the steps in base.Dockerfile in the Dockerfile, so these steps are done on each build.
+This is not best practise, but to limit the docker build time, and have a more smooth experience during this workshop. For real scenarios you should include the steps in base.Dockerfile in the Dockerfile, so these steps are done on each build.
 
 Do not add new or update dependencies for this component, as it will fail during build.
 
