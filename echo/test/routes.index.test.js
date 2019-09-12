@@ -32,11 +32,13 @@ describe('Testing index router', function () {
             .get('/api/echo')
             .expect(function(res) {
                 expect(res.header).to.have.property('content-type');
-                expect(res.body).to.have.property('RADIX_CLUSTERNAME');
+                expect(res.body).to.have.property('RADIX_APP');
                 expect(res.body).to.have.property('RADIX_COMPONENT');
                 expect(res.body).to.have.property('RADIX_ENVIRONMENT');
                 expect(res.body).to.have.property('HOSTNAME');
                 expect(res.body).to.have.property('HOSTPLATFORM');
+                expect(res.body).to.have.property('PASSWORD');
+                expect(res.body).to.have.property('PASSPHRASE');
             })
             .end(function (err) {
                 if (err)

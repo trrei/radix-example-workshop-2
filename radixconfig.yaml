@@ -7,6 +7,10 @@ spec:
     - name: development
       build:
         from: master
+    - name: qa
+      build:
+        from: release*
+    - name: prod
   components:
     - name: www
       src: ./www
@@ -25,6 +29,26 @@ spec:
               memory: "54Mi"
               cpu: "20m"
           replicas: 1
+        - environment: qa
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 1
+        - environment: prod
+          monitoring: false
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "10m"
+            limits:
+              memory: "54Mi"
+              cpu: "20m"
+          replicas: 2
     - name: echo
       src: ./echo
       ports:
@@ -44,6 +68,32 @@ spec:
               memory: "54Mi"
               cpu: "200m"
           replicas: 2
+        - environment: qa
+          monitoring: true
+          variables:
+            PORT: 3001
+            NODE_ENV: production
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "50m"
+            limits:
+              memory: "54Mi"
+              cpu: "200m"
+          replicas: 2
+        - environment: prod
+          monitoring: true
+          variables:
+            PORT: 3001
+            NODE_ENV: production
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "50m"
+            limits:
+              memory: "54Mi"
+              cpu: "200m"
+          replicas: 5
   dnsAppAlias:
     environment: development
     component: www
