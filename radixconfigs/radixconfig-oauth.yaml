@@ -32,6 +32,9 @@ spec:
       environmentConfig:
         - environment: development
           monitoring: true
+          variables:
+            PORT: 3001
+            NODE_ENV: production
           resources:
             requests:
               memory: "50Mi"
