@@ -100,7 +100,7 @@ We'll setup 2 new environments, QA and prod. A build/deploy to QA will be trigge
 
 Radix support connecting a branch to a specific environment. Let's explore this.
 
-1. Add two new environments in radixconfig.yaml file - QA and prod. QA should be built from release* branch (whenever someone publish to a release* branch).
+1. Add two new environments in radixconfig.yaml file - QA and prod. QA should be built from release/* branch (whenever someone publish to a release/* branch).
 1. Commit and push changes to master branch, explore what's happening in Radix.
 
 ### 2.3.2 Deploy to QA
