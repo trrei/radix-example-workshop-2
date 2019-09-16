@@ -70,6 +70,6 @@ docker run -it --name=echo --rm -p 3001:3001 echo
 
 ## Metrics
 
-Metrics are exposed on the /metrics endpoint. The [example](./app.js) is using the express-prom-bundle module which exposes http request durations. The metrics are scraped by Prometheus and made available in Graphana. (Remember to set monitoring:true in the radixconfig file)
+Metrics are exposed on the /metrics endpoint. The [example](./app.js) is using the express-prom-bundle module which exposes http request durations. In a Radix cluster metrics are scraped by Prometheus and made available in Graphana. (Remember to set monitoring:true in the radixconfig file)
 
 Optional: Create a [custom metric](https://github.com/siimon/prom-client#histogram) monitoring the time it takes to create a password. It should be possible to separate between how much time it takes for passphrases and password creation. A [histogram](https://prometheus.io/docs/practices/histograms/) might be the correct way to measure this. 

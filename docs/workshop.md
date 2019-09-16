@@ -114,18 +114,19 @@ Radix support connecting a branch to a specific environment. Let's explore this.
 1. Do a promotion of the deployment running in QA to prod environment. 
 1. Verified that the application is running as expected in prod environment. 
 
-## 2.4 Part 4 - Authentication
+## 2.4 Part 4 - Authentication (optional)
 
 Radix support refering to prebuild docker images. This can be used to introduce common services as proxies, caching, authentication etc. In this part we will explore how to reference an existing image to add OpenId Connect authentication to the application. 
 
+If there is time we will go through an example together during workshop.
+
 ### 2.4.1 Create an app in Azure AD
 
-1. Go through an example (whole class use same app)
-1. Explain scenarios OAuth proxy can be used and where it cannot
+If you have access to create an app in Azure AD, you can perform this part. You can follow the instruction from [example](https://github.com/equinor/radix-example-front-proxy#requirements).
 
 ### 2.4.2 Update radixconfig with oauth_proxy
 
-1. We'll use [OAuth proxy](https://github.com/pusher/oauth2_proxy) developed by pusher to add Authentication
+1. Use [OAuth proxy](https://github.com/pusher/oauth2_proxy) developed by pusher to add Authentication
 1. Update radixconfig file. See [example](https://github.com/equinor/radix-example-front-proxy) on how it can be done
 1. Remember to disable the public endpoint for ```www``` component in radixconfig file (publicPort should not be set)
 1. Optional: get the authentication to work locally using docker-compose - the format is similar to radixconfig
@@ -135,10 +136,9 @@ Radix support refering to prebuild docker images. This can be used to introduce 
 
 The Echo component is exposing metrics on the /metrics endpoint. These metrics are scraped by [Prometheus](https://prometheus.io/docs/introduction/overview/) and made available in [Grafana](https://grafana.com/). Consult the docs for Prometheus and Grafana for how to work with metrics and monitoring.
 
-
 ## 3. Typical questions
 
-(Status as of January 2019)
+(Status as of September 2019)
 
 - Storage - databases
 - Authentication
