@@ -47,7 +47,7 @@ function createRandomNicewarePassword(){
 }
 
 function createRandomPassword(){
-    const randomstring = Math.random().toString(36).slice(-11);
+    const randomstring = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
     return randomstring;
 }
 
