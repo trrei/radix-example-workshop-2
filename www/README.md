@@ -30,6 +30,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+### `npm audit`
+
+Run a vulnerability check on dependencies
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
@@ -45,10 +49,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm audit`
-
-Run a vulnerability check on dependencies
-
 ## Local docker development
 
 The reactjs app will be built by nodejs and served by a nginx web server. 
@@ -59,7 +59,7 @@ To build the image for the WWW app
 ```
 docker build -t www .
 ```
-__Note__: [Nginx config](./nginx.conf) used by www contains a redirect to reach the echo api. This route needs to be commented in/out, based on mockOff/mockOn. This needes to be done at build time. Nginx throws an error if not. (TODO! - control if to mock or not through env variable)
+__Note__: [Nginx config](./nginx.conf) used by www contains a redirect to reach the echo api. This route needs to be commented in/out, based on mockOff/mockOn. This needes to be done at build time. Nginx throws an error if not.
 
 ### Run as docker container
 
