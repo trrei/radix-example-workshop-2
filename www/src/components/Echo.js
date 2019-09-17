@@ -8,7 +8,7 @@ const Echo = (props) => {
 
   return <div>
     <p>Response from the Grand Echo service (page refreshed every {refreshInterval} milliseconds)</p>
-    <p>Number of refresh: <b>{nrRefresh*10}</b></p>
+    <p>Number of refresh: <b>{nrRefresh}</b></p>
     <p>Generated password: <b>{result.PASSWORD}</b></p>
     <p>Generated passphrase: <b>{result.PASSPHRASE}</b></p>
     <p>Radix Application: <b>{result.RADIX_APP}</b></p>
