@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: echo
+  name: echo_trrei
 spec:
   environments:
     - name: development
